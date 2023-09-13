@@ -13,18 +13,35 @@ namespace Diskriminant
             Console.ForegroundColor = ConsoleColor.DarkBlue;
             Console.WriteLine("Розрахунок квадратного рівняння типу: ax2+bx+c=0");
 
-            SettingCoefficients Setting = new();
-
-            string d = Setting.CalculateTheDiscriminant();
-
-            if (!Setting.isDefault)
-            {
-                SolutionOfEquation Solution = new(Setting.A, Setting.B, Setting.C);
-
-                d = Solution.Solve();
-            }
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(" ");
+            Console.Write(new string('-', 20));
+            Console.WriteLine(" ");
            
-            ResponseOutput output = new (d);
+            Console.WriteLine("Введіть а:");
+            double a = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Введіть b:");
+            double b = Convert.ToDouble(Console.ReadLine());
+            Console.WriteLine("Введіть c:");
+            double c = Convert.ToDouble(Console.ReadLine());
+
+          
+            Tasks Setting = new(a, b, c);
+
+            Solver Sol = new(Setting);
+
+            ResponseOutput Outt = new(Sol);
+
+
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine(" ");
+            Console.Write(new string('-', 20));
+            Console.WriteLine(" ");
+
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine(Outt.Message);
+            Console.ForegroundColor = ConsoleColor.Gray;
+
         }
     }
 }

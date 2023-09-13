@@ -6,19 +6,15 @@ using System.Threading.Tasks;
 
 namespace Quadratic
 {
-    struct ResponseOutput
+    public struct ResponseOutput
     {
-        public ResponseOutput(string a) 
+
+        public string Message {get;set;}
+        
+        public ResponseOutput (Solver b)
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine(" ");
-            Console.Write(new string('-', 20));
-            Console.WriteLine(" ");
-
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(a);
-            Console.ForegroundColor = ConsoleColor.Gray;
-
+            Message = b.Message;
         }
+
     }
 }
