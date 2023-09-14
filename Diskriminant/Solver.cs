@@ -13,12 +13,7 @@ namespace Quadratic
        
         private double a, b, c, d;
 
-        public string Message {get; set;}
-        public double D { get; set; }
-        public double X1 { get; set;}
-        public double X2 { get; set;}
-        
-
+      
         public Solver(Tasks Setting)
         {
             a = Setting.A;
@@ -88,7 +83,7 @@ namespace Quadratic
                     
                 }
             }
-           return (Message)
+           
         }
     }
 }
