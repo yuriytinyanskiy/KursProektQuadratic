@@ -37,9 +37,9 @@ namespace Diskriminant
             
             Console.WriteLine(result.Message);
             Console.WriteLine($"D = {result.D}");
-            if(result.X1 != 0)
+            if(result.X1 != null)
             { Console.WriteLine($"X2 = {result.X1}"); }
-            if (result.X2 != 0)
+            if (result.X2 != null)
             { Console.WriteLine($"X2 = {result.X2}"); }
 
             Console.ForegroundColor = ConsoleColor.Gray;

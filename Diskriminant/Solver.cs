@@ -10,7 +10,8 @@ namespace Quadratic
 {
     public class Solver
     {
-        private double a, b, c, d, x1, x2;
+        private double a, b, c, d;
+        private double? x1, x2;
         private string? message = null;
       
         public Solver(Tasks Setting)

@@ -9,12 +9,12 @@ namespace Quadratic
 {
     public struct DisplayResalt
     {
-        public string Message { get; }
-        public double D { get; }
-        public double X1 { get; }
-        public double X2 { get; }
+        public string? Message { get; }
+        public double? D { get; }
+        public double? X1 { get; }
+        public double? X2 { get; }
 
-        public DisplayResalt (string a, double b, double c, double d)
+        public DisplayResalt (string? a, double? b, double? c, double? d)
         {
             Message = a;
             D = b;
