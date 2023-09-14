@@ -27,7 +27,6 @@ namespace Diskriminant
 
             var solver = new Solver(new Tasks(a, b, c));
 
-                            
             var result = solver.Solve();
 
             DisplayResalt(result);
