@@ -11,7 +11,7 @@ namespace Quadratic
     public class Solver
     {
         private double a, b, c, d, x1, x2;
-        private string? Message = null;
+        private string? message = null;
       
         public Solver(Tasks Setting)
         {
@@ -35,46 +35,46 @@ namespace Quadratic
                 {
                     if (c == 0)
                     {
-                        Message = "Відповідь: 'X' можее бути будь-яким числом";
+                        message = "Відповідь: 'X' можее бути будь-яким числом";
                     }
                     else
                     {
-                        Message = "Рівняння не має рішень";
+                        message = "Рівняння не має рішень";
                     }
                 }
                 else
                 {
                     x1 = -c / b;
 
-                    Message = ($"Відповідь: рівнення має один корінь");
+                    message = ($"Відповідь: рівнення має один корінь");
                 }
             }
             else
             {
-                d = Diskr(a, b, c);
+                Diskr(a, b, c);
 
                 if (d == 0)
                 {
                     x1 = -b / (2 * a);
 
-                    Message = ($"Відповідь: рівнення має один корінь");
+                    message = ($"Відповідь: рівнення має один корінь");
                 }
                 else if (d < 0)
                 {
-                    Message = ($"Відповідь: Коренів немає");
+                    message = ($"Відповідь: Коренів немає");
                 }
                 else
                 {
                     x1 = (-b + Math.Sqrt(d)) / (2 * a);
                     x2 = (-b - Math.Sqrt(d)) / (2 * a);
 
-                    Message = ($"Відповідь: рівнення має два кореня");
+                    message = ($"Відповідь: рівнення має два кореня");
                 }
             }
 
-            var resalt = new DisplayResalt(Message, d, x1, x2);
+            var result = new DisplayResalt(message, d, x1, x2);
 
-            return (resalt);
+            return (result);
         }
     }
 }
