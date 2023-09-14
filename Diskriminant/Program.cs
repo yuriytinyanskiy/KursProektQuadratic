@@ -29,23 +29,20 @@ namespace Diskriminant
 
             var result = solver.Solve();
 
-            DisplayResalt(result);
-
-
-
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine(" ");
             Console.Write(new string('-', 20));
             Console.WriteLine(" ");
-
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine(Outt.Message);
-            Console.WriteLine(Outt.D);
-            Console.WriteLine(Outt.X1);
-            Console.WriteLine(Outt.X2);
-            Console.ForegroundColor = ConsoleColor.Gray;
-
             
+            Console.WriteLine(result.Message);
+            Console.WriteLine($"D = {result.D}");
+            if(result.X1 != 0)
+            { Console.WriteLine($"X2 = {result.X1}"); }
+            if (result.X2 != 0)
+            { Console.WriteLine($"X2 = {result.X2}"); }
+
+            Console.ForegroundColor = ConsoleColor.Gray;
         }
     }
 }

@@ -10,9 +10,8 @@ namespace Quadratic
 {
     public class Solver
     {
-       
-        private double a, b, c, d;
-
+        private double a, b, c, d, x1, x2;
+        private string? Message = null;
       
         public Solver(Tasks Setting)
         {
@@ -28,9 +27,8 @@ namespace Quadratic
             return d;
         }
        
-        public void Solve() 
+        public DisplayResalt Solve() 
         {
-            
             if (a == 0)
             {
                 if (b == 0)
@@ -46,44 +44,37 @@ namespace Quadratic
                 }
                 else
                 {
-                    double x = -c / b;
+                    x1 = -c / b;
 
-                    X1 = x;
                     Message = ($"Відповідь: рівнення має один корінь");
                 }
-
             }
             else
             {
-                double d = Diskr(a, b, c);
-              
-                D = d;
+                d = Diskr(a, b, c);
 
                 if (d == 0)
                 {
-                    double x = -b / (2 * a);
+                    x1 = -b / (2 * a);
 
-                    X1 = x;
                     Message = ($"Відповідь: рівнення має один корінь");
                 }
                 else if (d < 0)
                 {
-                    Message = ($"Відповідт: Коренів немає");
+                    Message = ($"Відповідь: Коренів немає");
                 }
                 else
                 {
-                    double x1 = (-b + Math.Sqrt(d)) / (2 * a);
-                    double x2 = (-b - Math.Sqrt(d)) / (2 * a);
-
-                    X1 = x1;
-                    X2 = x2;
+                    x1 = (-b + Math.Sqrt(d)) / (2 * a);
+                    x2 = (-b - Math.Sqrt(d)) / (2 * a);
 
                     Message = ($"Відповідь: рівнення має два кореня");
-
-                    
                 }
             }
-           
+
+            var resalt = new DisplayResalt(Message, d, x1, x2);
+
+            return (resalt);
         }
     }
 }

@@ -9,19 +9,17 @@ namespace Quadratic
 {
     public struct DisplayResalt
     {
-
         public string Message { get; }
         public double D { get; }
         public double X1 { get; }
         public double X2 { get; }
 
-
-        public DisplayResalt (Solver b)
+        public DisplayResalt (string a, double b, double c, double d)
         {
-            Message = b.Message;
-            D = b.D;
-            X1 = b.X1;
-            X2 = b.X2;
+            Message = a;
+            D = b;
+            X1 = c;
+            X2 = d;
         }
     }
 }

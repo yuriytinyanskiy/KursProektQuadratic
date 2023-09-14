@@ -10,7 +10,6 @@ namespace Quadratic
 {
     public struct Tasks
     {
-        
         public double A { get; }
         public double B { get; }
         public double C { get; }
