@@ -11,9 +11,9 @@ namespace Quadratic
     public struct Tasks
     {
         
-        public double A { get; set; }
-        public double B { get; set; }
-        public double C { get; set; }
+        public double A { get; }
+        public double B { get; }
+        public double C { get; }
 
         public Tasks(double a, double b, double c)
         {

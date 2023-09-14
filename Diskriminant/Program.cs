@@ -25,12 +25,18 @@ namespace Diskriminant
             Console.WriteLine("Введіть c:");
             double c = Convert.ToDouble(Console.ReadLine());
 
-          
-            Tasks Setting = new(a, b, c);
+            var solver = new Solver(new Tasks(a, b, c));
 
-            Solver Sol = new(Setting);
+            Solver result = solver.Solve();
 
-            ResponseOutput Outt = new(Sol);
+                        
+            DisplayResalt Outt = new DisplayResalt(result);
+
+           
+            var result = solver.Solve();
+
+            DisplayResalt(result);
+
 
 
             Console.ForegroundColor = ConsoleColor.Yellow;
@@ -40,8 +46,12 @@ namespace Diskriminant
 
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(Outt.Message);
+            Console.WriteLine(Outt.D);
+            Console.WriteLine(Outt.X1);
+            Console.WriteLine(Outt.X2);
             Console.ForegroundColor = ConsoleColor.Gray;
 
+            
         }
     }
 }

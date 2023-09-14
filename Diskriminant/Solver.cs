@@ -1,31 +1,48 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Quadratic
 {
     public class Solver
     {
+       
+        private double a, b, c, d;
+
         public string Message {get; set;}
-        public double A { get; }
-        public double B { get; }
-        public double C { get; }
+        public double D { get; set; }
+        public double X1 { get; set;}
+        public double X2 { get; set;}
+        
 
         public Solver(Tasks Setting)
         {
-            A = Setting.A;
-            B = Setting.B;
-            C = Setting.C;
-      
-            if (A == 0)
+            a = Setting.A;
+            b = Setting.B;
+            c = Setting.C;
+        }
+
+        private double Diskr (double a, double b, double c)
+        {
+            d = Math.Pow(b, 2) - 4 * a * c;
+           
+            return d;
+        }
+       
+        public void Solve() 
+        {
+            
+            if (a == 0)
             {
-                if (B == 0)
+                if (b == 0)
                 {
-                    if (C == 0)
+                    if (c == 0)
                     {
-                        Message = "Відповідь: 'x' можее бути будь-яким числом";
+                        Message = "Відповідь: 'X' можее бути будь-яким числом";
                     }
                     else
                     {
@@ -34,34 +51,44 @@ namespace Quadratic
                 }
                 else
                 {
-                    double x = -C / B;
+                    double x = -c / b;
 
-                    Message = ($"Відповідь: корінь рівнення x = {x}");
+                    X1 = x;
+                    Message = ($"Відповідь: рівнення має один корінь");
                 }
 
             }
             else
             {
-                double d = Math.Pow(B, 2) - 4 * A * C;
+                double d = Diskr(a, b, c);
+              
+                D = d;
 
                 if (d == 0)
                 {
-                    double x = -B / (2 * A);
+                    double x = -b / (2 * a);
 
-                    Message = ($"Відповідь: D = {d}, один корінь x = {x}");
+                    X1 = x;
+                    Message = ($"Відповідь: рівнення має один корінь");
                 }
                 else if (d < 0)
                 {
-                    Message = ($"D = {d}, Коренів немає");
+                    Message = ($"Відповідт: Коренів немає");
                 }
                 else
                 {
-                    double x1 = (-B + Math.Sqrt(d)) / (2 * A);
-                    double x2 = (-B - Math.Sqrt(d)) / (2 * A);
+                    double x1 = (-b + Math.Sqrt(d)) / (2 * a);
+                    double x2 = (-b - Math.Sqrt(d)) / (2 * a);
 
-                    Message = ($"Відповідь: D = {d}, два кореня x1 = {x1}, x2 = {x2}");
+                    X1 = x1;
+                    X2 = x2;
+
+                    Message = ($"Відповідь: рівнення має два кореня");
+
+                    
                 }
             }
+           return (Message)
         }
     }
 }
